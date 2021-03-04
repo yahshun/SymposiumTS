@@ -19,6 +19,8 @@ Follow these steps to complete this lab:
 
 **Exercise 1 - Setting Up Lab Workstation**
 
+
+
 #. From your client's webbrowser, navigate to https://udf.f5.com
 #. Login with your UDF credentials.  If you have not previously logged into UDF an email was sent to the address you provided with a temporary password to complete the registration process.   If you are returning UDF user but do not remember you password, simply click the password reset button to start the password reset process.
 #. Locate the [Symposium2021] Automation: Service Analytics and Metrics with TS course and select **Launch** 
@@ -33,7 +35,7 @@ Follow these steps to complete this lab:
    
    .. image:: ./continue.png
 
-#. Click the *DEPLOYMENT** tab is in the top right, which contains all of the components deployed for this lab. 
+#. Click the **DEPLOYMENT** tab is in the top left, which contains all of the components deployed for this lab. 
 
    .. image:: ./class.png
 
