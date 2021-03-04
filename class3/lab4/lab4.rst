@@ -35,7 +35,7 @@ In this lab we will configure our Telemetry Streaming JSON declaration to establ
   
 #. From the UDF page, find the host named Traffic Gen and select Web Shell from the dropdown 
 
-.. image:: ./trafficgen.png
+   .. image:: ./trafficgen.png
 
 #. Type su for sudo user access. If prompted, the password is toor.  
 
