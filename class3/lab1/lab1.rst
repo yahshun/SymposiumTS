@@ -13,7 +13,7 @@ During this hands-on lab you will learn the following:
 
 - How to use two data consumers to visualize statistics from Telemetry Streaming.
 
-This lab will go through initial setup and add you to the Telemetry Streaming Agility 2020 workstation.  
+This lab will go through initial setup and add you to the Telemetry Streaming Symposium 2021 workstation.  
 
 Follow these steps to complete this lab:
 
