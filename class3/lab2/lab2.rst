@@ -1,19 +1,22 @@
-Review API Calls
+REVIEW API CALLS
 ================
 
 In this lab section we are introducing Postman, an API Development Environment that helps us structure API calls. We will send GET requests to obtain the RPM package that shows details of the API.
 
-**Task 1 - Check Application Services 3 Extension (AS3) RPM Availability**
-  
-#. Open Postman 
 
-#. Open the the Postman collection `Verify Installation`
+**EXERCISE 1 - CHECK APPLICATION SERVICES 3 EXTENSION (AS3) RPM AVAILABILITY**
+  
+#. Open Postman. 
+
+#. Open the the Postman collection **VERIFY INSTALLATION**.
 
    .. image:: ./postman1.jpg
 
-#. Click the `Get AS3 RPM Package` request 
+#. Click the **GET AS3 RPM PACKAGE** request.
 
-#. Examine the request. Note that we are sending a 'GET' request with an empty body. Send the GET request by clicking the blue 'Send' button. Also note that we have built in auth for you, using Basic username and password authentication. 
+#. Examine the request in the grey box near the top. Note that we are sending a **GET** request with an empty body. Send the **GET** request by clicking the blue **SEND** button on the right hand side.
+
+   .. note:  We have built in auth for you, using Basic username and password authentication. 
 
    .. image:: ./send1.jpg
 
@@ -21,15 +24,16 @@ In this lab section we are introducing Postman, an API Development Environment t
 
    .. image:: ./as3rpm.jpg
 
-.. note:: By sending this GET request to 'https://10.1.1.9/mgmt/shared/appsvcs/info' with the correct credentials, the response shows details of the AS3 API available on this BIG-IP. 
+.. note:: By sending this GET request to ``https://10.1.1.9/mgmt/shared/appsvcs/info`` with the correct credentials, the response shows details of the AS3 API available on this BIG-IP. 
 
-.. note:: This AS3 RPM package was pre-installed. For instructions, visit the link here: https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/installation.html 
+.. note:: This AS3 RPM package was pre-installed. For instructions, see `Downloading and installing the AS3 package <https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/installation.html>`__.
 
-**Task 2 - Check Telemetry Streaming RPM Availability**
+
+**EXERCISE 2 - CHECK TELEMETRY STREAMING RPM AVAILABILITY**
   
-#. Click the `Get TS RPM Package` request 
+#. Click the **GET TS RPM PACKAGE** request.
 
-#. Examine the request. Note that we are sending a 'GET' request with an empty body. Send the GET request by clicking the blue 'Send' button. 
+#. Examine the request. Note that we are sending a **GET** request with an empty body. Send the **GET** request by clicking the blue **SEND** button. 
 
    .. image:: ./sendts.jpg
 
@@ -37,6 +41,6 @@ In this lab section we are introducing Postman, an API Development Environment t
 
    .. image:: ./tsrpm.jpg
 
-.. note:: By sending this GET request to 'https://10.1.1.9/mgmt/shared/telemetry/info' with the correct credentials, the response shows details of the TS API available on this BIG-IP. 
+.. note:: By sending this GET request to ``https://10.1.1.9/mgmt/shared/telemetry/info`` with the correct credentials, the response shows details of the TS API available on this BIG-IP. 
 
-.. note:: This Telemetry Streaming RPM package was pre-installed. For instructions, visit the link here: https://clouddocs.f5.com/products/extensions/f5-telemetry-streaming/latest/userguide/installing-ts.html
+.. note:: This Telemetry Streaming RPM package was pre-installed. For instructions, see `Downloading and installing Telemetry Streaming <https://clouddocs.f5.com/products/extensions/f5-telemetry-streaming/latest/installation.html>`__.

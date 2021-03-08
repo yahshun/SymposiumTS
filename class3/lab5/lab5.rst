@@ -1,79 +1,91 @@
-Telemetry Streaming With AWS Cloudwatch
+TELEMETRY STREAMING WITH AWS CLOUDWATCH
 =======================================
 
 In this lab we will configure our Telemetry Streaming JSON declaration to establish a connection between our AWS consumer and our BIG-IP. 
 
-**Task 1 - Login to AWS Cloudwatch**
+
+
+**EXERCISE 1 - LOGIN TO AWS CLOUDWATCH**
   
-#. From your client, return to the UDF webisite and click on the Documentation tab
+#. From your client, return to the `UDF website <https://udf.f5.com>`__ and click on the **DOCUMENTATION** tab for this lab.
 
-#. From the Cloud Accounts section, copy the Console Username and Console Password (keep this tab open for the next section). Click the Console URL. Paste in the Console Username and Console Password. 
+#. From the Cloud Accounts section, copy the **REGION**, the **Console Username** and **Console Password** (keep this tab open for the exercises below). Click the **CONSOLE URL**. Paste in the **Console Username** and **Console Password**. 
 
-   .. image:: ./cw1.png    
+   .. image:: ./cw1b.png    
 
-#. Once logged in, click the Services dropdown, search and select Cloudwatch 
+#. Once logged in, click the **SERVICES** dropdown, search and select **CLOUDWATCH**. 
 
-   .. image:: ./cw2.png
+   .. image:: ./cw2b.png
 
-#. On the left pane, under Logs select Log groups. Under the Actions dropdown select Create log group. 
+#. On the left pane, under **LOGS** select **LOG GROUPS**. Select **CREATE LOG GROUP** on the right side. 
 
-   .. image:: ./cw3.png
+   .. image:: ./cw3b.png
 
-#. Name the log group (ie my_log_group) and select the Create log group blue button. 
+#. Name the log group. Example: **my_log_group** and select the **CREATE** orange button on the bottom right-hand side. 
 
-#. Click on the log group you just created. Select Create Log Stream and name your log stream (ie my_log_stream) 
+   .. image:: ./cw3c.png
 
-   .. image:: ./cw4.png
+#. Click on the log group you just created. Select **CREATE LOG STREAM** and name your log stream Example: **my_log_stream**.
+
+   .. image:: ./cw4b.png
  
-**Task 2 - Edit the AWS Cloudwatch TS Declaration**
-  
-#. Return to the Jumphost's RDP session and the Postman application
 
-#. Expand the Collection titled `Create AWS Cloudwatch Consumer`. Open the AWS Cloudwatch request. Open the Body tab of the request 
+
+**EXERCISE 2 - EDIT THE AWS CLOUDWATCH TS DECLARATION**
+  
+#. Return to the **Jumphost's RDP session** and the **Postman** application.
+
+#. Expand the Collection titled **CREATE AWS CLOUDWATCH CONSUMER**. Open the **AWS CLOUDWATCH** request. Open the **BODY** tab of the request.
    
-   .. image:: ./cw5.png
+   .. image:: ./cw5b.png
 
-#. We need to edit the My_Consumer JSON section with setting from our AWS environment. 
+#. We need to edit the **My_Consumer JSON** section with the settings copied earlier from our AWS environment at the top of this lab. 
 
-#. Edit the region value to match what is located in the UDF Cloud account section. 
+   .. image:: ./cw1b.png
 
-#. Edit the logGroup value to match the name of the log group you previously created in the AWS Console.
+   .. image:: ./cw5c.png
 
-#. Edit the logStream value to match the name of the log stream you previously created in the AWS Console. 
+#. Edit the **region** value to match what is located in the **UDF Cloud account section**. 
+
+#. Edit the **logGroup** value to match the name of the log group you previously created in the AWS Console. Example: **my_log_group**
+
+#. Edit the **logStream** value to match the name of the log stream you previously created in the AWS Console. Example: **my_log_stream**
  
-#. Copy the API Key from the Cloud account section to the username value.
+#. Copy the **API Key** from the cloud account section to the **username value**.
 
-#. Copy the API secret from the Cloud Account Section to cipherText value. 
-
-   .. image:: ./cw1.png
+#. Copy the **API secret** from the cloud account Section to **cipherText value**. 
     
-   .. image:: ./cw7.png
+#. Click the blue **SEND** to POST the Telemetry Streaming declaration. Ensure a **200 OK** response. 
  
-#. Click the blue Send to POST the Telemetry Streaming declaration. Ensure a 200 OK response. 
- 
-**Exercise 3 – View the logs in AWS Cloudwatch**
+   .. image:: ./cw7b.png
 
-#. Return to the AWS Console and naviate to Cloudwatch 
 
-#. Navigate to the log stream you created. 
+
+**EXERCISE 3 - VIEW THE LOGS IN AWS CLOUDWATCH**
+
+#. Return to the AWS Console and navigate to **CLOUDWATCH**.
+
+#. Navigate to the log stream you created. Example: **my_log_stream**
 
 #. Notice that logs have been populated in the log stream. 
 
-   .. image:: ./cw6.png
+   .. image:: ./cw6b.png
 
 #. Expand the log. Scroll down and you will find data on the virtual servers, pools, and various other objects.  
 
-**Exercise 5 – Manipulate the Search**
 
-#. On the left pane, select the subcategory Insights 
 
-   .. image:: ./cw8.png
+**EXERCISE 4 - MANIPULATE THE SEARCH**
 
-#. Click into the Select log group(s) search bar and select your group. Then click the Run query button. 
+#. On the left pane, select the subcategory **INSIGHTS**.
 
-   .. image:: ./cw9.png
+   .. image:: ./cw8b.png
 
-#. You can manipulate the search field with our examples.
+#. Click into the Select **log group(s) search bar** and select your group. Then click the **RUN QUERY** button. 
+
+   .. image:: ./cw9b.png
+
+#. You can manipulate the search field with these examples.
 
    .. code-block:: sql
     
@@ -86,4 +98,10 @@ In this lab we will configure our Telemetry Streaming JSON declaration to establ
            |parse @message "clientSideTraffic.bitsIn\":*," as clientsin
            |parse @message "clientSideTraffic.bitsOut\":*," as clientsout
 
-#. Paste the either of the code blocks into the text box and click Run Query 
+#. Paste the either of the code blocks above into the text box and click **RUN QUERY**. 
+
+   Example Output
+
+   .. image:: ./cw10.png
+
+.. note:: This concludes the F5 telemetry Streaming lab.

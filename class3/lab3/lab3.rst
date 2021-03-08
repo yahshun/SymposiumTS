@@ -1,88 +1,101 @@
-Deploy a Web Application
+DEPLOY A WEB APPLICATION
 ========================
 
-In this lab we will use the AS3 API to programmatically deploy an application to th BIG-IP with a single REST call.
+In this lab we will use the AS3 API too programmatically deploy an application to the BIG-IP with a single REST call.
 
-**Task 1 - Explore BIG-IP**
 
-#. Open Chrome and navigate to the BIG-IP GUI (https://10.1.1.9) or by clicking the bookmark. 
+**EXERCISE 1 - EXPLORE BIG-IP**
+
+#. Open Chrome and navigate to the BIG-IP GUI ``https://10.1.1.9`` or by clicking the bookmark on the bar. 
+
+#. Proceed past any security warnings by clicking **ADVANCED** and then **Proceed to 10.1.1.9 (unsafe)**.
+
+   .. image:: ./privacy-error.png
 
 #. Login to the BIG-IP with the following credentials:
 
    +---------------+------------------------------------+
-   | Username      |        admin                       |
+   | Username      |        **admin**                   |
    +---------------+------------------------------------+
-   | Password      |    AgilityIsFun123!                |
+   | Password      |    **AgilityIsFun123!**            |
    +---------------+------------------------------------+
 
-#. Once you are logged in, navigate to 'Local Traffic' -> 'Virtual Servers' -> 'Virtual Servers List'. 
+#. Once you are logged in, navigate to **LOCAL TRAFFIC** -> **VIRTUAL SERVERS** -> **VIRTUAL SERVERS LIST**. 
 
    .. image:: ./vslist.jpg
 
-#. Note that you are in the 'Common' partition (top-right) and the BIG-IP has no Virtual Servers, Pools or Pool Members configured. 
+#. Note that you are in the **COMMON** partition (top-right) and the BIG-IP has no Virtual Servers, Pools or Pool Members configured. 
 
-   .. image:: ./vslistdisplay.jpg
+   .. image:: ./vslistdisplay.png
 
-**Task 2 - Configure and Deploy the HTTP Application via AS3 With The Appropriate Telemetry Streaming Configuration**
+
+**EXERCISE 2 - CONFIGURE AND DEPLOY THE HTTP APPLICATION VIA AS3 WITH THE APPROPRIATE TELEMETRY STREAMING CONFIGURATION**
 
 The focus for this exercise is to deploy an application with the appropriate Telemetry Streaming configuration objects.
 
 #. Minimize Chrome and open the Postman application.
 
-#. Expand the Postman collection `Deploy Application` to view the requests 
+#. Expand the Postman collection **DEPLOY APPLICATION** to view the requests.
 
-#. Click the `Create Application via AS3` request 
+#. Click the **CREATE APPLICATION VIA AS3** request.
 
-#. Click on the body tab and examine the request body. 
+#. Click on the **BODY** tab and examine the request body. 
 
    .. image:: ./jsonbody.jpg
 
    .. hint::  Here is what is important in this declaration: 
+   
+   * The telemetry_local_rule allows traffic through port 6514.  
 
-   * The telemetry_local_rule allows traffic through port 6514  
+   * The telemetry_traffic_log_profile builds a logging profile which specifies the log parameters. 
 
-   * The telemetry_traffic_log_profile builds a logging profile which specifies the log parameters 
-
-   .. image:: ./as3snippet.jpg
+   .. image:: ./as3snippet.png
 
 #. Send the POST request by clicking the blue Send button.
 
-#. Ensure you recieved a 'Status: 200 OK' response. 
+#. Ensure you received a **Status: 200 OK** response. 
 
    .. image:: ./200response.jpg
 
 .. note:: By sending this GET request to ``https://10.1.1.9/mgmt/shared/appsvcs/declare`` with the correct credentials and current body we've built an application declaratively via AS3. 
 
-.. note:: To learn more about AS3, visit https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/ 
+.. note:: To learn more about AS3, please see `Application Services 3 Extension Documentation <https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/>`__. 
 
-**Exercise 3 - Verify Successful Deployment via BIG-IP GUI**
 
-#. Open Chrome 
+**EXERCISE 3 - VERIFY SUCCESSFUL DEPLOYMENT VIA BIG-IP GUI**
 
-#. Click the BIG-IP bookmark or navigate to 'https://10.1.1.9'
+#. Open Chrome. 
+
+#. Click the BIG-IP bookmark or navigate to ``https://10.1.1.9``
 
 #. Login to the BIG-IP with the following credentials:
 
    +---------------+------------------------------------+
-   | Username      |        admin                       |
+   | Username      |        **admin**                   |
    +---------------+------------------------------------+
-   | Password      |    AgilityIsFun123!                |
+   | Password      |    **AgilityIsFun123!**            |
    +---------------+------------------------------------+
 
-#. Once you are logged in, navigate to 'Local Traffic' -> 'Virtual Servers' -> 'Virtual Servers List'. 
+#. Once you are logged in, navigate to **LOCAL TRAFFIC** -> **VIRTUAL SERVERS** -> **VIRTUAL SERVERS LIST**. 
 
    .. image:: ./vslist.jpg
 
-#. Notice that you are currently in the `Common` partition and that there is now an application built named `opencart_vs`. 
+#. Notice that you are currently in the **COMMON** partition and that there is now an application built named **opencart_vs**. 
 
-   .. image:: ./ocbigip.jpg
+   .. image:: ./ocbigip.png
 
-**Exercise 4 - Verify Web Application**
 
-#. In Chrome, click on the 'OpenCart' bookmark. 
+
+**EXERCISE 4 - VERIFY WEB APPLICATION**
+
+#. In Chrome, click on the **+** to open a new tab and show the bookmark tool bar.
+
+   .. image:: ./chrome_new_tab.png
+
+#. In Chrome, click on the **OpenCart** bookmark. 
 
    .. image:: ./ocbookmark.jpg
 
-#. Verify the application is working by clicking a few tabs and viewng products. 
+#. Verify the application is working by clicking a few tabs and view some products. 
 
    .. image:: ./opencart.jpg
